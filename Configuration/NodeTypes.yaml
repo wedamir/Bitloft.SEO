@@ -1,0 +1,58 @@
+'TYPO3.Neos:SEO':
+  superTypes: ['TYPO3.Neos:Page']
+  ui:
+    label: 'Seo Page'
+    search:
+      searchCategory: 'Documents'
+    inspector:
+      groups:
+        document:
+          label: 'Document options'
+          position: 10
+        type:
+          label: 'Change type'
+          position: 1000
+        seo:
+          label: 'Seo'
+          position: 20
+  properties:
+    seotitle:
+      type: string
+      ui:
+        label: 'Seitentitel'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'seo'
+      validation:
+        'TYPO3.Neos/Validation/NotEmptyValidator': []
+        'TYPO3.Neos/Validation/StringLengthValidator':
+          minimum: 1
+          maximum: 255
+    seodescription:
+      type: string
+      ui:
+        label: 'Description'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'seo'
+    seokeywords:
+      type: string
+      ui:
+        label: 'Keywords'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'seo'
+    seoauthor:
+      type: string
+      ui:
+        label: 'Author'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'seo'
+    seorobots:
+      type: string
+      ui:
+        label: 'Robots'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'seo'

@@ -1,3 +1,115 @@
+'TYPO3.Neos:Document':
+  superTypes:
+    - 'TYPO3.Neos:Node'
+    - 'TYPO3.Neos:Hidable'
+    - 'TYPO3.Neos:Timable'
+  abstract: TRUE
+  ui:
+    label: 'Document'
+    search:
+      searchCategory: 'Documents'
+    inspector:
+      groups:
+        document:
+          label: 'Document options'
+          position: 10
+        type:
+          label: 'Change type'
+          position: 1000
+        seo:
+          label: 'Seo'
+          position: 20
+  properties:
+    _nodeType:
+      type: string
+      ui:
+        label: 'Type'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'type'
+          position: 100
+          editor: Content/Inspector/Editors/NodeTypeEditor
+          editorOptions:
+            placeholder: 'Loading ...'
+            baseNodeType: 'TYPO3.Neos:Document'
+    title:
+      type: string
+      ui:
+        label: 'Title'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'document'
+      validation:
+        'TYPO3.Neos/Validation/NotEmptyValidator': []
+        'TYPO3.Neos/Validation/StringLengthValidator':
+          minimum: 1
+          maximum: 255
+    _name:
+      type: string
+      ui:
+        label: 'Name (URL)'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'document'
+      validation:
+        'TYPO3.Neos/Validation/NotEmptyValidator': []
+        'TYPO3.Neos/Validation/StringLengthValidator':
+          minimum: 1
+          maximum: 255
+        regularExpression:
+          regularExpression: '/^[a-z0-9\-]+$/i'
+    _hidden:
+      ui:
+        reloadIfChanged: TRUE
+    _hiddenInIndex:
+      type: boolean
+      ui:
+        label: 'Hide in menus'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'visibility'
+          position: 40
+    seotitle:
+      type: string
+      ui:
+        label: 'Seitentitel'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'seo'
+      validation:
+        'TYPO3.Neos/Validation/NotEmptyValidator': []
+        'TYPO3.Neos/Validation/StringLengthValidator':
+          minimum: 1
+          maximum: 255
+    seodescription:
+      type: string
+      ui:
+        label: 'Description'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'seo'
+    seokeywords:
+      type: string
+      ui:
+        label: 'Keywords'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'seo'
+    seoauthor:
+      type: string
+      ui:
+        label: 'Author'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'seo'
+    seorobots:
+      type: string
+      ui:
+        label: 'Robots'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'seo'
+
 'TYPO3.Neos:SEO':
   superTypes: ['TYPO3.Neos:Page']
   ui:
@@ -56,3 +168,5 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'seo'
+
+

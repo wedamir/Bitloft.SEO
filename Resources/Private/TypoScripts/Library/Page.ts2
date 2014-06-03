@@ -47,7 +47,7 @@ prototype(TYPO3.Neos:Page) < prototype(TYPO3.TypoScript:Array) {
 
         titleTag = TYPO3.TypoScript:Tag {
             tagName = 'title'
-            content = ${q(node).property('seotitle')}
+            content = ${q(node).property('seotitle') != '' ? q(node).property('seotitle') : q(node).property('title')}
         }
 
         descriptionMetaTag = TYPO3.TypoScript:Tag {
@@ -83,6 +83,21 @@ prototype(TYPO3.Neos:Page) < prototype(TYPO3.TypoScript:Array) {
                 content = ${q(node).property('seorobots')}
             }
         }
+
+
+        canonicalTag = TYPO3.TypoScript:Tag{
+            @position = 'start 5'
+            tagName = 'link'
+            attributes {
+                rel = 'canonical'
+                href = ${q(node).property('seocanonical') != '' ? q(node).property('seocanonical') : ''}
+            }
+        }
+
+
+
+
+
 
         neosBackendHeader = TYPO3.TypoScript:Template {
             @position = 'end 10000'

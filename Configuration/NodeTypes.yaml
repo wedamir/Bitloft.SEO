@@ -77,7 +77,6 @@
         inspector:
           group: 'seo'
       validation:
-        'TYPO3.Neos/Validation/NotEmptyValidator': []
         'TYPO3.Neos/Validation/StringLengthValidator':
           minimum: 1
           maximum: 255
@@ -106,6 +105,14 @@
       type: string
       ui:
         label: 'Robots'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'seo'
+    seocanonical:
+      type: string
+      defaultValue: "a"
+      ui:
+        label: 'Canonical'
         reloadIfChanged: TRUE
         inspector:
           group: 'seo'

@@ -90,7 +90,8 @@ prototype(TYPO3.Neos:Page) < prototype(TYPO3.TypoScript:Array) {
             tagName = 'link'
             attributes {
                 rel = 'canonical'
-                href = ${q(node).property('seocanonical') != '' ? q(node).property('seocanonical') : ''}
+                #href = ${q(node).property('seocanonical') != '' ? q(node).property('seocanonical') : ''}
+                href = ${q(node).property('seocanonical') != null && q(node).property('seocanonical') != '' ? q(node).property('seocanonical') : q(site).property('seocanonical')}
             }
         }
 

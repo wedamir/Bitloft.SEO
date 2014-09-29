@@ -47,7 +47,7 @@ prototype(TYPO3.Neos:Page) < prototype(TYPO3.TypoScript:Array) {
 
         titleTag = TYPO3.TypoScript:Tag {
             tagName = 'title'
-            content = ${q(node).property('seotitle') != '' || q(node).property('seotitle') != NULL ? q(node).property('seotitle') : q(node).property('title')}
+            content = ${q(node).property('seotitle') != NULL ? q(node).property('seotitle') : q(node).property('title')}
         }
 
         descriptionMetaTag = TYPO3.TypoScript:Tag {

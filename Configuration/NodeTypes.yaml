@@ -30,7 +30,7 @@
       validation:
         'TYPO3.Neos/Validation/StringLengthValidator':
           minimum: 1
-          maximum: 255
+          maximum: 69
     seodescription:
       type: string
       ui:
@@ -38,6 +38,10 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'seo'
+      validation:
+        'TYPO3.Neos/Validation/StringLengthValidator':
+          minimum: 1
+          maximum: 156
     seokeywords:
       type: string
       ui:
